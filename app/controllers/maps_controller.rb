@@ -1,0 +1,10 @@
+class MapsController < ApplicationController
+  
+  def index
+
+  end
+
+
+  def new
+  end
+end
