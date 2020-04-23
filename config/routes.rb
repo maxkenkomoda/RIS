@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'maps#index'
+  root to: 'maps#new'
 
-  get 'maps#index'
-  get 'maps#new'
+  resources :maps, only: [:index, :new]
+  post 'maps/create'
 end

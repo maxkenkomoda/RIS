@@ -62,3 +62,7 @@ gem "jquery-rails"
 gem "kaminari"
 
 gem "dotenv-rails"
+
+gem 'gon'
+
+gem 'pry-rails'
