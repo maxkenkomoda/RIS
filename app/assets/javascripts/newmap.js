@@ -1,5 +1,5 @@
-//Map Javascript //////////////
-//defenition 
+// Map Javascript 
+// defenition 
 var map;
 var myLocation = {lat: 34.809006620739176, lng: 135.5614241910291};
 var lat_lng;
@@ -13,37 +13,37 @@ function initMap() {
     zoom: 5
   });
         
-   //set marker
+  // set marker
   var marker = new google.maps.Marker ({
     position: myLocation,
     map: map
   });
 
   map.addListener('click', function(mapsMouseEvent) {
-  //delete current marker
-  marker.setMap(null);
-  //create new marker
-  marker = new google.maps.Marker ({
-    position: mapsMouseEvent.latLng,
-    map: map
-  })
-  lat_lng = mapsMouseEvent.latLng;
-  //change the center of the map
-  map.panTo(lat_lng);
-  console.log(lat_lng.toString());
-  lat = lat_lng.lat();
-  lng = lat_lng.lng();
-  document.getElementById('lat').textContent = lat;
-  document.getElementById('lng').textContent = lng;
+  // delete current marker
+    marker.setMap(null);
+    // create new marker
+    marker = new google.maps.Marker ({
+      position: mapsMouseEvent.latLng,
+      map: map
+    })
+    lat_lng = mapsMouseEvent.latLng;
+    // change the center of the map
+    map.panTo(lat_lng);
+    console.log(lat_lng.toString());
+    lat = lat_lng.lat();
+    lng = lat_lng.lng();
+    document.getElementById('lat').textContent = lat;
+    document.getElementById('lng').textContent = lng;
   });
 }
 
-//Ajax function 
-$(document).on('turbolinks:load', function(){
+// Ajax function 
+$(document).on('turbolinks:load', function(){ // first load turbolinks to avoid error
   $(function (){
-    $("#submit_button").click(function(e){
+    $('#submit_button').click(function(e){
       e.preventDefault();
-      var input = $("#content").val();
+      var input = $('#content').val();
       $.ajax({
         type: 'POST',
         url: '/maps/create',
@@ -51,13 +51,13 @@ $(document).on('turbolinks:load', function(){
         processData: false,
         contentType: false,
         data:{
-        latitude: lat,
-        longitude: lng,
-        content: input
+          latitude: lat,
+          longitude: lng,
+          content: input
         }
       })
       .done(function(){
-        alert('sucess')
+        alert('sucess'),
         console.log(input);
       })
       .fail(function(){
@@ -66,4 +66,3 @@ $(document).on('turbolinks:load', function(){
     })
   })
 })
-

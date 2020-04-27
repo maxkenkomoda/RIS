@@ -12,13 +12,11 @@ class MapsController < ApplicationController
     @content = Map.new(params[:content])
     @latitude = Map.new(params[:latitude])
     @longitude = Map.new(params[:longitude])
-  #binding.pry
+   #binding.pry
 
-    @content.save
-    @latitude.save
-    @longitude.save
-    
-    redirect_to root_url
+   @content.save
+   @latitude.save
+   @longitude.save
   end
 
 
