@@ -38,31 +38,29 @@ function initMap() {
   });
 }
 
-// Ajax function 
-$(document).on('turbolinks:load', function(){ // first load turbolinks to avoid error
-  $(function (){
-    $('#submit_button').click(function(e){
-      e.preventDefault();
-      var input = $('#content').val();
-      $.ajax({
-        type: 'POST',
-        url: '/maps/create',
-        dataType: 'html',
-        processData: false,
-        contentType: false,
-        data:{
-          latitude: lat,
-          longitude: lng,
-          content: input
-        }
-      })
-      .done(function(){
-        alert('sucess'),
-        console.log(input);
-      })
-      .fail(function(){
-        alert('fail')
-      })
+// Ajax function
+$(function () {
+  $('#submit_button').on('click', function () {
+    var input = $('#content').val(); 
+    console.log(input);
+    console.log(lat);
+    console.log(lng);
+    $.ajax ( {
+      type: 'POST',
+      url: '/maps/create',
+      dataType: 'html',
+      data: {
+        content: input,
+        latitude: lat,
+        longitude: lng,
+      }
     })
-  })
-})
+    .done(function () {
+      alert('Your new Registration is now complete!');
+    })
+    .fail(function () {
+      alert('Your new registration is faild. Please try again.');
+    });
+  });
+});
+
