@@ -12,7 +12,7 @@ function initMap() {
     center: myLocation,
     zoom: 5
   });
-        
+  
   // set marker
   var marker = new google.maps.Marker ({
     position: myLocation,
@@ -63,4 +63,3 @@ $(function () {
     });
   });
 });
-
