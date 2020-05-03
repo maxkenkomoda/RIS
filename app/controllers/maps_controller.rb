@@ -11,7 +11,11 @@ class MapsController < ApplicationController
 
   def create
     @map = Map.new(map_params)
-    @map.save
+    if @map.save
+      redirect_to action: 'index'
+    else
+      render action: :new
+    end
   end
 
 

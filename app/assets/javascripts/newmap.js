@@ -5,13 +5,17 @@ var myLocation = {lat: 34.809006620739176, lng: 135.5614241910291};
 var lat_lng;
 var lat;
 var lng;
+var map2;
 
-//initialaize Mao
-function initMap() {
+
+
+//initialaize Map
+function initMap () {
   map = new google.maps.Map(document.getElementById('new_map'), {
     center: myLocation,
     zoom: 5
   });
+  
   
   // set marker
   var marker = new google.maps.Marker ({
@@ -39,7 +43,7 @@ function initMap() {
 }
 
 // Ajax function
-$(function () {
+$(document).on('turbolinks:load', function () {
   $('#submit_button').on('click', function () {
     var input = $('#content').val(); 
     console.log(input);
@@ -55,7 +59,8 @@ $(function () {
         longitude: lng,
       }
     })
-    .done(function () {
+    .done(function (data) {
+      console.log(data), 
       alert('Your new Registration is now complete!');
     })
     .fail(function () {
@@ -63,3 +68,10 @@ $(function () {
     });
   });
 });
+
+function initMap2 () {
+  map2 = new google.maps.Map(document.getElementById('index_map'), {
+    center: myLocation,
+    zoom: 5
+  });
+}

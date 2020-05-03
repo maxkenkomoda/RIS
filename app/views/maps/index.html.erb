@@ -1,14 +1,10 @@
 <h1>Google Map</h1>
 <div id ="index_map" class="index_map"></div>
-<ul>
-  <li>lat: <span id="lat"></span></li>
-  <li>lng: <span id="lng"></span></li>
-</ul>
 <h2>Post index</h2>
   <ul>
     <% @maps.each do |map| %>
-      <li><%= map.content %>: <%= map.latitude %></li>
+      <li><%= map.content %> <%= map.latitude %>: <%= map.longitude %></li>
     <% end %>
   </ul>
-<%= link_to 'new', new_map_path %>
-
+<%= link_to 'new', new_map_path, data: {'turbolinks'=> false} %>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP']%>&callback=initMap2"></script>
