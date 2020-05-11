@@ -69,9 +69,3 @@ $(document).on('turbolinks:load', function () {
   });
 });
 
-function initMap2 () {
-  map2 = new google.maps.Map(document.getElementById('index_map'), {
-    center: myLocation,
-    zoom: 5
-  });
-}
