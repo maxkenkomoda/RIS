@@ -66,3 +66,5 @@ gem "dotenv-rails"
 gem 'gon'
 
 gem 'pry-rails'
+
+gem 'devise'
