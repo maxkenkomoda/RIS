@@ -6,8 +6,11 @@
       <li><%= map.title %> <%= map.latitude %>: <%= map.longitude %></li>
     <% end %>
   </ul>
+
 <%= link_to 'new', new_map_path, data: {'turbolinks'=> false} %>
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<% if user_signed_in? %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<% end %>
 
 
 
