@@ -54,7 +54,7 @@ $(document).on('turbolinks:load', function () {
       url: '/maps/create',
       dataType: 'html',
       data: {
-        content: input,
+        title: input,
         latitude: lat,
         longitude: lng,
       }

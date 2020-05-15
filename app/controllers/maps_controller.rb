@@ -5,7 +5,7 @@ class MapsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@maps) do |map, marker|
       marker.lat map.latitude
       marker.lng map.longitude
-      marker.infowindow map.content
+      marker.infowindow map.title
     end
   end
 
@@ -28,7 +28,7 @@ class MapsController < ApplicationController
   private
 
   def map_params
-    params.permit(:latitude, :longitude, :content)  
+    params.permit(:latitude, :longitude, :title)  
   end
 
 end

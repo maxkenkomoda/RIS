@@ -3,7 +3,7 @@
 <h2>Post index</h2>
   <ul>
     <% @maps.each do |map| %>
-      <li><%= map.content %> <%= map.latitude %>: <%= map.longitude %></li>
+      <li><%= map.title %> <%= map.latitude %>: <%= map.longitude %></li>
     <% end %>
   </ul>
 <%= link_to 'new', new_map_path, data: {'turbolinks'=> false} %>
