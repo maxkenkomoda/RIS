@@ -15,7 +15,7 @@ class MapsController < ApplicationController
 
 
   def create
-    @map = Map.new(map_params)
+    @map = current_user.maps.build(map_params)
     if @map.save
       redirect_to action: 'index'
     else
