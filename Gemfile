@@ -68,3 +68,5 @@ gem 'gon'
 gem 'pry-rails'
 
 gem 'devise'
+
+gem 'cocoon'
