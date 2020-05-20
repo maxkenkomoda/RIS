@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'maps#index'
 
-  resources :maps, only: [:index, :new]
+  resources :maps, only: [:index, :new, :show]
   post 'maps/create'
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',

@@ -52,7 +52,6 @@ $(document).on('turbolinks:load', function () {
     $.ajax ( {
       type: 'POST',
       url: '/maps/create',
-      dataType: 'html',
       data: {
         title: input,
         latitude: lat,

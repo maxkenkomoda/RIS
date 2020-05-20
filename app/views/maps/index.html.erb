@@ -2,8 +2,8 @@
 <div id ="index_map" class="index_map"></div>
 <h2>Post index</h2>
   <ul>
-    <% @maps.each do |map| %>
-      <li><%= map.title %> <%= map.latitude %>: <%= map.longitude %>: <%= map.user.name %></li>
+    <% @map_index.each do |map| %>
+      <li><%= link_to map.title, map_path(map.id), data: {'turbolinks'=> false} %> <%= map.latitude %>: <%= map.longitude %>: <%= map.user.name %></li>
     <% end %>
   </ul>
 

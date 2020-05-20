@@ -17,3 +17,4 @@
 //= require turbolinks
 //= require gmaps/google
 //= require_tree .
+//= require cocoon

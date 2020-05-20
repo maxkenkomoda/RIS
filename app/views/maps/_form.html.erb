@@ -1,0 +1,5 @@
+<%= form_with(model: map) do |f| %>
+  <%= f.label :volume, '交通量' %>
+  <%= f.check_box(:volume, checked_value = "true", unchecked_value = "false") %>
+<% end %>
+
