@@ -29,7 +29,7 @@ class MapsController < ApplicationController
   def create
     @map_create = current_user.maps.build(map_params)
     if @map_create.save
-      redirect_to action: 'new'
+      redirect_to action: 'index'
     else
       render action: :new
     end
