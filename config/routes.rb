@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+  root 'maps#index'
 
-  resources :posts, only: [:index, :new, :show]
-  post 'posts/create'
-
+  resources :maps, only: [:index, :new, :show]
+  post 'maps/create'
+  
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   

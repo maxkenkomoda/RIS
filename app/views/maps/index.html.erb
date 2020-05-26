@@ -3,11 +3,11 @@
 <h2>Post index</h2>
   <ul>
     <% @map_index.each do |map| %>
-      <li><%= link_to map.id, post_path(map.id), data: {'turbolinks'=> false} %> <%= map.latitude %>: <%= map.longitude %>: <%= map.user.name %></li>
+      <li><%= link_to map.id, map_path(map.id), data: {'turbolinks'=> false} %> <%= map.latitude %>: <%= map.longitude %>: <%= map.user.name %></li>
     <% end %>
   </ul>
 
-<%= link_to 'new', new_post_path, data: {'turbolinks'=> false} %>
+<%= link_to 'new', new_map_path, data: {'turbolinks'=> false} %>
 <% if user_signed_in? %>
   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <% end %>
