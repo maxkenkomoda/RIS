@@ -37,32 +37,8 @@ function initMap () {
     console.log(lat_lng.toString());
     lat = lat_lng.lat();
     lng = lat_lng.lng();
-    document.getElementById('lat').textContent = lat;
-    document.getElementById('lng').textContent = lng;
+    document.getElementById('lat').value = lat;
+    document.getElementById('lng').value = lng;
   });
 }
 
-// Ajax function
-$(document).on('turbolinks:load', function () {
-  $('#submit_button').on('click', function () {
-    console.log(lat);
-    console.log(lng);
-    $.ajax ( {
-      type: 'POST',
-      url: '/maps/create',
-      data: {
-        map :{
-          latitude: lat,
-          longitude: lng
-        }
-      }
-    })
-    .done(function (data) {
-      console.log(data), 
-      alert('Your new Registration is now complete!');
-    })
-    .fail(function () {
-      alert('Your new registration is faild. Please try again.');
-    });
-  });
-});

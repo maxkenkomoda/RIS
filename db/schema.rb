@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_093936) do
+ActiveRecord::Schema.define(version: 2020_05_28_071713) do
 
   create_table "maps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -23,12 +23,10 @@ ActiveRecord::Schema.define(version: 2020_05_26_093936) do
 
   create_table "titles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "map_id"
     t.index ["map_id"], name: "index_titles_on_map_id"
-    t.index ["user_id"], name: "index_titles_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,5 +44,4 @@ ActiveRecord::Schema.define(version: 2020_05_26_093936) do
 
   add_foreign_key "maps", "users"
   add_foreign_key "titles", "maps"
-  add_foreign_key "titles", "users"
 end
