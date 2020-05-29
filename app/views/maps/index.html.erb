@@ -5,7 +5,7 @@
     <% @map_index.each do |map| %>
       <li><%= link_to map.id, map_path(map.id), data: {'turbolinks'=> false} %> <%= map.latitude %>: <%= map.longitude %>: <%= map.user.name %>:<%= map.title.title %></li>
         <% if current_user == map.user %>
-          <%= link_to 'Delete', map, method: :delete %>
+          <%= link_to 'Delete', map, method: :delete, id: 'delete_button' %>
         <% end %>
     <% end %>
   </ul>

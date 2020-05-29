@@ -11,6 +11,7 @@ class MapsController < ApplicationController
     end
   end
 
+
   def show
     @map_show = Map.find(params[:id])
     # Using gmap4rails
@@ -18,7 +19,6 @@ class MapsController < ApplicationController
       marker.lat map.latitude
       marker.lng map.longitude
     end
-
   end
 
 
@@ -31,31 +31,37 @@ class MapsController < ApplicationController
   def create
     @new_map = current_user.maps.build(map_params)
     if @new_map.save
+      flash[:sucess] = 'Saved Your information'
       redirect_to controller: 'maps', action: 'index'
     else
+      flash.now[:danger] = 'Sorry, we could not save your inforamtion'
       render action: :new
     end
   end
 
-  def get_map
-    @map_show = Map.find(params[:id])
-  end
 
   def destroy
-    @map_destroy.destroy
+    @user_map.destroy
     redirect_to controller: 'maps', action: 'index'
   end
 
-  private
+
+private
+
+
+  def get_map
+    @map_show = Map.find(params[:id])
+  end
 
 
   def map_params
     params.require(:map).permit(:latitude, :longitude, title_attributes: [:title]) 
   end
 
+
   def correct_user
-    @map_destroy = current_user.maps.find_by(id: params[:id])
-    unless @map_destroy
+    @user_map = current_user.maps.find_by(id: params[:id])
+    unless @user_map
       redirect_to root_url
     end
   end

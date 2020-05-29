@@ -8,14 +8,12 @@ var lng;
 var map2;
 
 
-
 //initialaize Map
 function initMap () {
   map = new google.maps.Map(document.getElementById('new_map'), {
     center: myLocation,
     zoom: 5
   });
-
 
   // set marker
   var marker = new google.maps.Marker ({
@@ -41,4 +39,19 @@ function initMap () {
     document.getElementById('lng').value = lng;
   });
 }
+
+
+//submit button click event
+$(document).on('turbolinks:load', function () {
+  $('#submit_button').on('click', function () {
+    alert('Your information will be saved');
+  });
+});
+
+//delete button click event
+$(document).on('turbolinks:load', function () {
+  $('#delete_button').on('click', function () {
+    alert('Are you sure?');
+  });
+});
 
