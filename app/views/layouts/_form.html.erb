@@ -1,0 +1,9 @@
+    <%= form_with(model: map, local:true) do |f| %>
+      <%= f.hidden_field :latitude, id:'lat' %>
+      <%= f.hidden_field :longitude, id:'lng' %>
+        
+      <%= f.fields_for :title do |t| %>
+        <%= t.text_field :title %>
+      <% end %>
+      <%= f.submit 'register' %>
+    <% end %>

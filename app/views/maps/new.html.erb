@@ -1,21 +1,10 @@
 <% if user_signed_in? %>
   <h1>Google Map</h1>
     <div id="new_map" class="new_map"></div>
+<!-- user form -->
   <div>
-    <%= form_with(model: @map, local:true) do |f| %>
-      <%= f.hidden_field :latitude, id:'lat' %>
-      <%= f.hidden_field :longitude, id:'lng' %>
-        
-      <%= f.fields_for :title do |t| %>
-        <%= t.text_field :title %>
-      <% end %>
-      <%= f.submit 'register' %>
-    <% end %>
+    <%= render 'layouts/form', map: @new_map %>
   </div>
-  <ul>
-    <li>lat: <span id="latitude"></span></li>
-    <li>lng: <span id="longitude"></span></li>
-  </ul>
   <%= link_to 'index', maps_path, data: {'turbolinks' => false} %>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP']%>&callback=initMap"></script>

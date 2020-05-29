@@ -1,7 +1,9 @@
 class MapsController < ApplicationController
+  before_action :correct_user, only: [:destroy, :update]
 
   def index
     @map_index = Map.all
+    # Using gmap4rails
     @hash = Gmaps4rails.build_markers(@map_index) do |map, marker|
       marker.lat map.latitude
       marker.lng map.longitude
@@ -11,6 +13,7 @@ class MapsController < ApplicationController
 
   def show
     @map_show = Map.find(params[:id])
+    # Using gmap4rails
     @hash_show = Gmaps4rails.build_markers(@map_show) do |map, marker|
       marker.lat map.latitude
       marker.lng map.longitude
@@ -20,15 +23,14 @@ class MapsController < ApplicationController
 
 
   def new
-    @map = Map.new
-    @map.build_title
+    @new_map = Map.new
+    @new_map.build_title
   end
 
 
   def create
-    @map = current_user.maps.build(map_params)
-    if @map.save
-     
+    @new_map = current_user.maps.build(map_params)
+    if @new_map.save
       redirect_to controller: 'maps', action: 'index'
     else
       render action: :new
@@ -40,13 +42,21 @@ class MapsController < ApplicationController
   end
 
   def destroy
-
-
+    @map_destroy.destroy
+    redirect_to controller: 'maps', action: 'index'
   end
+
   private
 
 
   def map_params
     params.require(:map).permit(:latitude, :longitude, title_attributes: [:title]) 
+  end
+
+  def correct_user
+    @map_destroy = current_user.maps.find_by(id: params[:id])
+    unless @map_destroy
+      redirect_to root_url
+    end
   end
 end
