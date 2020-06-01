@@ -3,7 +3,7 @@
       <%= f.hidden_field :longitude, id: 'lng' %>
         
       <%= f.fields_for :title do |t| %>
-        <%= t.text_field :title %>
+        <%= t.select :title, [['超危険！避けるべき！'],['危険！'],['要注意！']] %>
       <% end %>
       <%= f.submit 'register', id: 'submit_button' %>
     <% end %>

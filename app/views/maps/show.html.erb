@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function () {
       markers = handler.addMarkers(<%=raw @hash_show.to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-      handler.getMap().setZoom(18);
+      handler.getMap().setZoom(9);
   });
 });
 </script>
