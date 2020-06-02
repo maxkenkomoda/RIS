@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_044808) do
+ActiveRecord::Schema.define(version: 2020_06_02_090946) do
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "map_id"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["map_id"], name: "index_comments_on_map_id"
+  end
 
   create_table "maps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,6 +27,25 @@ ActiveRecord::Schema.define(version: 2020_06_02_044808) do
     t.decimal "longitude", precision: 11, scale: 8
     t.bigint "user_id"
     t.index ["user_id"], name: "index_maps_on_user_id"
+  end
+
+  create_table "roads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "map_id"
+    t.boolean "condition", default: false, null: false
+    t.boolean "sidewalk", default: false, null: false
+    t.boolean "narrow", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["map_id"], name: "index_roads_on_map_id"
+  end
+
+  create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "map_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "no_shop", default: false, null: false
+    t.boolean "no_vending_machine", default: false, null: false
+    t.index ["map_id"], name: "index_shops_on_map_id"
   end
 
   create_table "titles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,6 +63,8 @@ ActiveRecord::Schema.define(version: 2020_06_02_044808) do
     t.datetime "updated_at", null: false
     t.boolean "speed", default: false, null: false
     t.boolean "large_car", default: false, null: false
+    t.boolean "people", default: false, null: false
+    t.boolean "stop", default: false, null: false
     t.index ["map_id"], name: "index_traffics_on_map_id"
   end
 
@@ -52,7 +81,10 @@ ActiveRecord::Schema.define(version: 2020_06_02_044808) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "maps"
   add_foreign_key "maps", "users"
+  add_foreign_key "roads", "maps"
+  add_foreign_key "shops", "maps"
   add_foreign_key "titles", "maps"
   add_foreign_key "traffics", "maps"
 end
