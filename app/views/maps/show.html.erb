@@ -1,9 +1,26 @@
 <h1>詳細</h1>
 <div id='show_map'></div>
+
+<h2><%= @map_show.title.title %><h2>
+
+<h3>危険箇所</h3>
+<div>
+  <ul>
+    <li><%= traffic_volume %></li>
+    <li><%= traffic_speed %></li>
+    <li><%= traffic_large_car %></li>
+  </ul>
+</div>
+
+
+
+
+
+
+
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP']%>"></script>
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
-
 
 <script type="text/javascript">
 $(document).on('turbolinks:load', function () {

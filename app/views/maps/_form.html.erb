@@ -5,5 +5,15 @@
       <%= f.fields_for :title do |t| %>
         <%= t.select :title, [['超危険！避けるべき！'],['危険！'],['要注意！']] %>
       <% end %>
+      <%= f.fields_for :traffic do |t| %>
+        <%= t.check_box :volume %>
+        <%= t.label :volume, '交通量が多い'%>
+
+        <%= t.check_box :speed %>
+        <%= t.label :speed, '車の速度が速い'%>
+
+        <%= t.check_box :large_car %>
+        <%= t.label :large_car, '大型車の通行量が多い'%>
+      <% end %>
       <%= f.submit 'register', id: 'submit_button' %>
     <% end %>

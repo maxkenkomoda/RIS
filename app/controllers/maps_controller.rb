@@ -25,6 +25,7 @@ class MapsController < ApplicationController
   def new
     @new_map = Map.new
     @new_map.build_title
+    @new_map.build_traffic
   end
 
 
@@ -55,7 +56,13 @@ private
 
 
   def map_params
-    params.require(:map).permit(:latitude, :longitude, title_attributes: [:title]) 
+    params.require(:map).permit(
+      :latitude, :longitude, 
+      title_attributes: [:title], 
+      traffic_attributes: [:volume, :speed, :large_car],
+      
+    )
+
   end
 
 
