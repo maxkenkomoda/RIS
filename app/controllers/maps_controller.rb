@@ -1,6 +1,6 @@
 class MapsController < ApplicationController
   before_action :correct_user, only: [:destroy, :update]
-
+  before_action :user_signed_in?, only: [:new, :create, :destroy]  
   def index
     @map_index = Map.all
     # Using gmap4rails

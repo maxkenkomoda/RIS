@@ -26,7 +26,17 @@
   </ul>
 </div>
 
-
+<div>
+  <% if user_signed_in? %>
+    <% unless @map_show.user == current_user %>
+      <% if current_user.likes?(@map_show) %>
+        <%= link_to '役に立った！', unlike_user_path, method: :delte, class: 'btn btn-danger btn-sm' %>
+      <% else %>
+        <%= link_to '役に立った', like_user_path, method: :post, class: 'btn btn-info btn-sm' %> 
+      <% end %>
+    <% end %>
+  <% end %> 
+</div>
 
 
 

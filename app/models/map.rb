@@ -2,6 +2,8 @@ class Map < ApplicationRecord
 
   belongs_to :user
 
+  has_many :favorites
+
   has_one :title, dependent: :destroy  
   has_one :traffic, dependent: :destroy
   has_one :road, dependent: :destroy
@@ -16,4 +18,5 @@ class Map < ApplicationRecord
 
   validates :latitude, presence: true
   validates :longitude, presence: true
+  
 end
