@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  before_action :user_signed_in?, only: [:like, :unlike]  
-def show
+  before_action :user_signed_in?
+ 
+
+  def show
     @user = User.find(current_user.id)
   
     @user_map = current_user.maps.all
