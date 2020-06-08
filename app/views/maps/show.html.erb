@@ -4,35 +4,14 @@
 <h2><%= @map_show.title.title %><h2>
 
 <h3>危険箇所</h3>
-<div>
-  <ul>
-    <li><%= traffic_volume %></li>
-    <li><%= traffic_speed %></li>
-    <li><%= traffic_large_car %></li>
-    <li><%= traffic_people %></li>
-    <li><%= traffic_stop %></li>
-  </ul>
-  <ul>
-    <li><%= road_condition %></li>
-    <li><%= road_sidewalk %></li>
-    <li><%= road_narrow %></li>
-  </ul>
-  <ul>
-    <li><%= shop_no_shop %></li>
-    <li><%= shop_no_vending_machine %></li>
-  </ul>
-  <ul>
-    <li><%= @map_show.comment.comment %></li>
-  </ul>
-</div>
-
+  <%= render 'maps/detail', map: @map_show %>
 <div>
   <% if user_signed_in? %>
     <% unless @map_show.user == current_user %>
       <% if current_user.likes?(@map_show) %>
-        <%= link_to '役に立った！', unlike_user_path, method: :delte, class: 'btn btn-danger btn-sm' %>
+        <%= link_to '役に立った！を取り消し', unlike_user_path, method: :delte, class: 'btn btn-danger btn-sm mb-5' %>
       <% else %>
-        <%= link_to '役に立った', like_user_path, method: :post, class: 'btn btn-info btn-sm' %> 
+        <%= link_to '役に立った！', like_user_path, method: :post, class: 'btn btn-dark btn-sm mb-5' %> 
       <% end %>
     <% end %>
   <% end %> 

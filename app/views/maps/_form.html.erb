@@ -1,56 +1,66 @@
-    <%= form_with(model: map, local:true) do |f| %>
-      <%= f.hidden_field :latitude, id: 'lat' %>
-      <%= f.hidden_field :longitude, id: 'lng' %>
-<!-- Title form -->        
-      <%= f.fields_for :title do |t| %>
-        <%= t.label :title, '危険度合い'%>
-        <%= t.select :title, [['超危険！避けるべき！'],['危険！'],['要注意！']] %>
-      <% end %>
+<!-- send latitude and longitude data by using hidden field -->
+<%= form_with(model: map, local:true) do |f| %>
+  <%= f.hidden_field :latitude, id: 'lat' %>
+  <%= f.hidden_field :longitude, id: 'lng' %>
+<!-- Title form -->
+  <%= f.fields_for :title do |t| %>
+    <div class='form-group'>
+      <%= t.label :title, '危険度合いを選択してください' %> 
+      <%= t.select :title, [['超危険！避けるべき！'],['危険！'],['要注意！']], {}, {class: 'form-control'} %>
+    </div>
+  <% end %>
+
+
+
+<!-- google map here -->
+  <div id='new_map'>
+  </div>
+
 <!-- Traffic checkbox form -->
-      <h2>交通量関係</h2>
+  <div class='row'>
+    <div class='col-sm-4 list-group'>
+      <h3 class='text-center'>交通量関係</h3>
       <%= f.fields_for :traffic do |t| %>
-        <%= t.check_box :volume %>
-        <%= t.label :volume, '交通量が多い'%>
-
-        <%= t.check_box :speed %>
-        <%= t.label :speed, '車の速度が速い'%>
-
-        <%= t.check_box :large_car %>
-        <%= t.label :large_car, '大型車の通行量が多い'%>
-        
-        <%= t.check_box :people %>
-        <%= t.label :people, '歩行者が大量'%>
-        
-        <%= t.check_box :stop %>
-        <%= t.label :stop, '自転車通行禁止・行き止まり'%>
+        <li class='list-group-item'><%= t.check_box :volume %> <%= t.label :volume, '交通量が多い' %></li>
+        <li class='list-group-item'><%= t.check_box :speed %> <%= t.label :speed, '車の速度が速い' %></li>
+        <li class='list-group-item'><%= t.check_box :large_car %> <%= t.label :large_car, '大型車の通行量が多い' %></li>
+        <li class='list-group-item'><%= t.check_box :people %> <%= t.label :people, '歩行者が大量' %></li>
+        <li class='list-group-item'><%= t.check_box :stop %> <%= t.label :stop, '自転車通行禁止・行き止まり' %></li>
       <% end %>
+    </div>
 <!-- Road checkbox form -->
-      <h2>路面状況関係</h2>  
+    <div class='col-sm-4 list-group'>
+      <h3 class='text-center'>路面状況関係</h3>  
       <%= f.fields_for :road do |r| %>
-        <%= r.check_box :condition %>
-        <%= r.label :condition, '路面が荒れている'%>
-       
-        <%= r.check_box :sidewalk %>
-        <%= r.label :sidewalk, '避難用の歩道がない'%>
-          
-        <%= r.check_box :narrow %>
-        <%= r.label :narrow, '道が狭い'%>
+        <li class='list-group-item'><%= r.check_box :condition %> <%= r.label :condition, '路面が荒れている' %></li>
+        <li class='list-group-item'><%= r.check_box :sidewalk %> <%= r.label :sidewalk, '避難用の歩道がない' %></li>
+        <li class='list-group-item'><%= r.check_box :narrow %> <%= r.label :narrow, '道が狭い' %></li>
       <% end %>
+    </div>
 
 <!-- Shop checkbox form -->
-    <h2>補給・休憩関係</h2>
-    <%= f.fields_for :shop do |s| %>
-      <%= s.check_box :no_shop %>
-      <%= s.label :no_shop, '近くにコンビニ・レストラン等の休憩場所がない'%>
-        
-      <%= s.check_box :no_vending_machine %>
-      <%= s.label :no_vending_machine, '近くに自動販売機がない' %>
-    <% end %>
+    <div class='col-sm-4 list-group'>
+      <h3 class='text-center'>補給・休憩関係</h3>
+      <%= f.fields_for :shop do |s| %>
+        <li class='list-group-item'><%= s.check_box :no_shop %> <%= s.label :no_shop, 'コンビニ等休憩場所がない' %></li>
+        <li class='list-group-item'><%= s.check_box :no_vending_machine %> <%= s.label :no_vending_machine, '近くに自動販売機がない' %></li>
+      <% end %>
+    </div>
+  </div>
 
 <!-- Comment form -->
-    <h2>コメント・備考</h2>
-    <%= f.fields_for :comment do |c| %>
-      <%= c.text_area :comment %>
-    <% end %>
-  <%= f.submit 'register', id: 'submit_button' %>
+  <div class='row'>
+    <div class='col-sm-12 mt-5 mb-5'>
+      <h3 class='text-center'>コメント・備考</h3>
+      <%= f.fields_for :comment do |c| %>
+        <%= c.text_area :comment, class: 'form-control', placeholder: '最大255文字' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-sm-12'>
+      <%= f.submit 'register', id: 'submit_button', class: 'btn btn-primary btn-lg btn-block mb-5' %>
+    </div>
+  </div>
 <% end %>

@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
-  <h1>Google Map</h1>
-    <div id="new_map" class="new_map"></div>
+  <div class='text-center mt-3'>
+    <h1>新規投稿</h1>
+  </div>
 <!-- user form -->
   <div>
     <%= render 'maps/form', map: @new_map %>
   </div>
-  <%= link_to 'index', maps_path, data: {'turbolinks' => false} %>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP']%>&callback=initMap"></script>
 <% else %>

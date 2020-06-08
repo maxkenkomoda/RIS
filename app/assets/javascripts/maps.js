@@ -48,9 +48,17 @@ $(document).on('turbolinks:load', function () {
   });
 });
 
-//delete button click event
+//delete button on mypage click event
 $(document).on('turbolinks:load', function () {
   $('#delete_button').on('click', function () {
+    alert('Are you sure?');
+  });
+});
+
+//delete button on infowindow click event
+$(document).on('turbolinks:load', function () {
+  $('#hoge').on('click', function () {
+    concole.log('delete');
     alert('Are you sure?');
   });
 });

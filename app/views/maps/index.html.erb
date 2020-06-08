@@ -1,14 +1,8 @@
-<h1>Google Map</h1>
+<div class='text-center'>
+  <h1>RISC!!</h1>
+  <p>Road Infomation Site for Cyclist</p>
+</div>
 <div id ="index_map" class="index_map"></div>
-<h2>Post index</h2>
-  <ul>
-    <% @map_index.each do |map| %>
-      <li><%= link_to map.id, map_path(map.id), data: {'turbolinks'=> false} %> <%= map.latitude %>: <%= map.longitude %>: <%= map.user.name %>:<%= map.title.title %></li>
-        <% if current_user == map.user %>
-          <%= link_to 'Delete', map, method: :delete, id: 'delete_button' %>
-        <% end %>
-    <% end %>
-  </ul>
 
 <%= link_to 'new', new_map_path, data: {'turbolinks'=> false} %>
 <% if user_signed_in? %>
