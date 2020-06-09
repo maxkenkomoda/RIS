@@ -1,6 +1,9 @@
 class MapsController < ApplicationController
   before_action :correct_user, only: [:destroy, :update]
   before_action :user_signed_in?, only: [:new, :create, :destroy]  
+  before_action :get_map, only: [:show, :edit, :update, :destroy]
+
+
   def index
     @map_index = Map.all
     # Using gmap4rails
@@ -13,9 +16,9 @@ class MapsController < ApplicationController
 
 
   def show
-    @map_show = Map.find(params[:id])
+    get_map
     # Using gmap4rails
-    @hash_show = Gmaps4rails.build_markers(@map_show) do |map, marker|
+    @hash_show = Gmaps4rails.build_markers(@map) do |map, marker|
       marker.lat map.latitude
       marker.lng map.longitude
     end
@@ -35,12 +38,30 @@ class MapsController < ApplicationController
   def create
     @new_map = current_user.maps.build(map_params)
     if @new_map.save
-      flash[:sucess] = 'Saved Your information'
+      flash[:sucess] = '投稿を保存しました'
       redirect_to controller: 'maps', action: 'index'
     else
-      flash.now[:danger] = 'Sorry, we could not save your inforamtion'
+      flash.now[:danger] = '投稿を保存できませんでした'
       render action: :new
     end
+  end
+
+
+  def edit
+    get_map
+  end
+
+
+  def update
+    get_map
+
+    if @map.update(map_params)
+      flash[:sucess] = '編集に成功しました'
+    redirect_to controller: 'users', action: 'show', id: current_user.id
+    end
+
+
+
   end
 
 
@@ -54,7 +75,7 @@ private
 
 
   def get_map
-    @map_show = Map.find(params[:id])
+    @map = Map.find(params[:id])
   end
 
 

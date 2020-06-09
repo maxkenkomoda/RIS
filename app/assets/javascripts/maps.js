@@ -44,22 +44,13 @@ function initMap () {
 //submit button click event
 $(document).on('turbolinks:load', function () {
   $('#submit_button').on('click', function () {
-    alert('Your information will be saved');
+    alert('投稿を保存します');
   });
 });
 
 //delete button on mypage click event
 $(document).on('turbolinks:load', function () {
   $('#delete_button').on('click', function () {
-    alert('Are you sure?');
+    alert('削除してもよろしいでしょうか?');
   });
 });
-
-//delete button on infowindow click event
-$(document).on('turbolinks:load', function () {
-  $('#hoge').on('click', function () {
-    concole.log('delete');
-    alert('Are you sure?');
-  });
-});
-

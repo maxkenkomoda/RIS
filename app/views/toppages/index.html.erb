@@ -1,20 +1,12 @@
-<div class='text-center mt-3'>
-  <h1>マイページ</h1>
-  <h2><%= @user.name %></h2>
+<div class='text-center'>
+  <h1>RISC!!</h1>
+  <p>Road Infomation Site for Cyclist</p>
 </div>
+<h6>マーカーをクリックしてください！マーカーの中の'詳細'をクリックすると詳細ページへと飛びます！</h6>
+<div id ='top_map' class='top_map'></div>
 
-<div id='user_map'>
-</div>
 
-<h3>自分の投稿一覧</h3>
-  <ul>
-    <% @user_map.each do |map| %>
-      <li><%= link_to map.id, map_path(map.id), data: {'turbolinks'=> false} %> <%= map.latitude %>: <%= map.longitude %>: <%= map.user.name %>:<%= map.title.title %></li>
-        <% if current_user == map.user %>
-          <%= link_to 'Delete', map, method: :delete, id: 'delete_button' %>
-        <% end %>
-    <% end %>
-  </ul>
+
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP']%>"></script>
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
@@ -23,11 +15,10 @@
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'user_map'}}, function(){
+  handler.buildMap({ provider: {}, internal: {id: 'top_map'}}, function(){
       markers = handler.addMarkers(<%=raw @hash.to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
       handler.getMap().setZoom(5);
   });
 </script>
-

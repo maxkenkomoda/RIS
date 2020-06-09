@@ -1,6 +1,7 @@
 <h4><%= map.title.title %></h4>
 <div>
   <p><%= map.comment.comment.truncate(60) %></p>
+  <p>役に立った数:<%= map.favorites.count %></p>
 </div>
 <%= link_to '詳細...', map_path(map.id), data: {'turbolinks' => false}  %>
 <% if current_user == map.user %>

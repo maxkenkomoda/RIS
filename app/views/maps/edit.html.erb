@@ -1,0 +1,9 @@
+<div class='text-center mt-3'>
+  <h1>編集</h1>
+</div>
+<!-- user form -->
+<div>
+  <%= render 'maps/form', map: @map %>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP']%>&callback=initMap"></script>

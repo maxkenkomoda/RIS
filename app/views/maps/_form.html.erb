@@ -1,25 +1,35 @@
 <!-- send latitude and longitude data by using hidden field -->
+
 <%= form_with(model: map, local:true) do |f| %>
   <%= f.hidden_field :latitude, id: 'lat' %>
   <%= f.hidden_field :longitude, id: 'lng' %>
+
 <!-- Title form -->
+  
   <%= f.fields_for :title do |t| %>
-    <div class='form-group'>
-      <%= t.label :title, '危険度合いを選択してください' %> 
+    <div class='form-group mb-5'>
+    <h5><%= t.label :title, '1.危険度合いを選択してください' %></h5>
       <%= t.select :title, [['超危険！避けるべき！'],['危険！'],['要注意！']], {}, {class: 'form-control'} %>
     </div>
   <% end %>
 
-
-
 <!-- google map here -->
-  <div id='new_map'>
+  
+  <h5>2.マップをクリックするとクリックした場所にマーカーを移動させることができます。</h5>
+  <h5>危険箇所の上にマーカーを表示させてください。</h5>
+  
+  <div id='new_map' class='mt-5'>
   </div>
 
+<!-- detail checbox description -->
+
+  <h5 class='mb-5'>3.危険だと思われる理由にチェックをつけてください。</h5>
+
 <!-- Traffic checkbox form -->
+
   <div class='row'>
-    <div class='col-sm-4 list-group'>
-      <h3 class='text-center'>交通量関係</h3>
+    <div class='col-sm-4 list-group mb-5'>
+      <h6 class='text-center'>交通量関係</h6>
       <%= f.fields_for :traffic do |t| %>
         <li class='list-group-item'><%= t.check_box :volume %> <%= t.label :volume, '交通量が多い' %></li>
         <li class='list-group-item'><%= t.check_box :speed %> <%= t.label :speed, '車の速度が速い' %></li>
@@ -28,9 +38,11 @@
         <li class='list-group-item'><%= t.check_box :stop %> <%= t.label :stop, '自転車通行禁止・行き止まり' %></li>
       <% end %>
     </div>
+
 <!-- Road checkbox form -->
-    <div class='col-sm-4 list-group'>
-      <h3 class='text-center'>路面状況関係</h3>  
+    
+    <div class='col-sm-4 list-group mb-5'>
+      <h6 class='text-center'>路面状況関係</h6>  
       <%= f.fields_for :road do |r| %>
         <li class='list-group-item'><%= r.check_box :condition %> <%= r.label :condition, '路面が荒れている' %></li>
         <li class='list-group-item'><%= r.check_box :sidewalk %> <%= r.label :sidewalk, '避難用の歩道がない' %></li>
@@ -39,8 +51,9 @@
     </div>
 
 <!-- Shop checkbox form -->
-    <div class='col-sm-4 list-group'>
-      <h3 class='text-center'>補給・休憩関係</h3>
+    
+    <div class='col-sm-4 list-group mb-5'>
+      <h6 class='text-center'>補給・休憩関係</h6>
       <%= f.fields_for :shop do |s| %>
         <li class='list-group-item'><%= s.check_box :no_shop %> <%= s.label :no_shop, 'コンビニ等休憩場所がない' %></li>
         <li class='list-group-item'><%= s.check_box :no_vending_machine %> <%= s.label :no_vending_machine, '近くに自動販売機がない' %></li>
@@ -49,9 +62,10 @@
   </div>
 
 <!-- Comment form -->
+  
   <div class='row'>
-    <div class='col-sm-12 mt-5 mb-5'>
-      <h3 class='text-center'>コメント・備考</h3>
+    <div class='col-sm-12 mb-5'>
+      <h5>4.上記の選択項目になかった危険な箇所や、代替ルート、コメント・備考等があれば下記にお願いします。</h5>
       <%= f.fields_for :comment do |c| %>
         <%= c.text_area :comment, class: 'form-control', placeholder: '最大255文字' %>
       <% end %>
@@ -60,7 +74,7 @@
 
   <div class='row'>
     <div class='col-sm-12'>
-      <%= f.submit 'register', id: 'submit_button', class: 'btn btn-primary btn-lg btn-block mb-5' %>
+      <%= f.submit '投稿する', id: 'submit_button', class: 'btn btn-primary btn-lg btn-block mb-5' %>
     </div>
   </div>
 <% end %>

@@ -1,22 +1,37 @@
-<h1>詳細</h1>
+<div class=' text-center mt-3 mb-3'>
+  <h1><%= @map.user.name %>さんによる情報</h1>
+</div>
+
+<!-- title -->
+<div class='text-center mb-5'>
+  <h2>危険度合い：<%= @map.title.title %><h2>
+</div>
+<div class='row'>
+  <div class='offset-8'>
+    <p>役に立ったと評価した人数：<%= @map.favorites.count %>人</p>
+  </div>
+</div>
+<!-- google map below -->
+
 <div id='show_map'></div>
 
-<h2><%= @map_show.title.title %><h2>
+
 
 <h3>危険箇所</h3>
-  <%= render 'maps/detail', map: @map_show %>
+  <%= render 'maps/detail', map: @map %>
 <div>
   <% if user_signed_in? %>
-    <% unless @map_show.user == current_user %>
-      <% if current_user.likes?(@map_show) %>
+    <% unless @map.user == current_user %>
+      <% if current_user.likes?(@map) %>
         <%= link_to '役に立った！を取り消し', unlike_user_path, method: :delte, class: 'btn btn-danger btn-sm mb-5' %>
       <% else %>
         <%= link_to '役に立った！', like_user_path, method: :post, class: 'btn btn-dark btn-sm mb-5' %> 
       <% end %>
+    <% else %>
+      <%= link_to '編集', edit_map_path(@map) %>
     <% end %>
   <% end %> 
 </div>
-
 
 
 
