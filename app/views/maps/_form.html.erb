@@ -67,7 +67,7 @@
     <div class='col-sm-12 mb-5'>
       <h5>4.上記の選択項目になかった危険な箇所や、代替ルート、コメント・備考等があれば下記にお願いします。</h5>
       <%= f.fields_for :comment do |c| %>
-        <%= c.text_area :comment, class: 'form-control', placeholder: '最大255文字' %>
+        <%= c.text_area :comment, class: 'form-control', placeholder: '最大800文字' %>
       <% end %>
     </div>
   </div>

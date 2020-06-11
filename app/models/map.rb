@@ -2,7 +2,8 @@ class Map < ApplicationRecord
 
   belongs_to :user
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
+  has_many :replies, dependent: :destroy
 
   has_one :title, dependent: :destroy  
   has_one :traffic, dependent: :destroy

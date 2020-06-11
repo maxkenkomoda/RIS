@@ -22,6 +22,9 @@ class MapsController < ApplicationController
       marker.lat map.latitude
       marker.lng map.longitude
     end
+  #reply function
+    @reply = Reply.new
+    @replies = @map.replies.all
   end
 
 
@@ -39,7 +42,7 @@ class MapsController < ApplicationController
     @new_map = current_user.maps.build(map_params)
     if @new_map.save
       flash[:sucess] = '投稿を保存しました'
-      redirect_to controller: 'maps', action: 'index'
+      redirect_to controller: 'toppages', action: 'index'
     else
       flash.now[:danger] = '投稿を保存できませんでした'
       render action: :new
@@ -57,7 +60,7 @@ class MapsController < ApplicationController
 
     if @map.update(map_params)
       flash[:sucess] = '編集に成功しました'
-    redirect_to controller: 'users', action: 'show', id: current_user.id
+    redirect_to @map
     end
 
 
@@ -67,7 +70,7 @@ class MapsController < ApplicationController
 
   def destroy
     @user_map.destroy
-    redirect_to controller: 'maps', action: 'index'
+    redirect_back(fallback_location: root_path)
   end
 
 

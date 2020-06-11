@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   root to: 'toppages#index'
 
-  #get 'toppages/index'
-
-  resources :maps
-
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
@@ -22,4 +18,10 @@ Rails.application.routes.draw do
       post :unlike
     end
   end
+
+  resources :maps do
+    resources :replies, only: [:create, :destroy]
+  end
+
+  post 'replies/create'
 end

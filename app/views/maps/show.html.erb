@@ -13,24 +13,39 @@
 </div>
 <!-- google map below -->
 
-<div id='show_map'></div>
+<div id='show_map' class='mb-5'></div>
 
+<!-- description below -->
 
+<%= render 'maps/detail', map: @map %>
 
-<h3>危険箇所</h3>
-  <%= render 'maps/detail', map: @map %>
+<!-- if user logged in then like and reply possible -->  
 <div>
   <% if user_signed_in? %>
+    
+    <!-- like_button function -->
     <% unless @map.user == current_user %>
+      <p>もしもこの投稿が役に立った場合評価をお願いします</p>
       <% if current_user.likes?(@map) %>
         <%= link_to '役に立った！を取り消し', unlike_user_path, method: :delte, class: 'btn btn-danger btn-sm mb-5' %>
       <% else %>
         <%= link_to '役に立った！', like_user_path, method: :post, class: 'btn btn-dark btn-sm mb-5' %> 
       <% end %>
+
+    
     <% else %>
-      <%= link_to '編集', edit_map_path(@map) %>
+      <%= link_to '編集', edit_map_path(@map), class: 'btn btn-light mb-5' %>
     <% end %>
   <% end %> 
+</div>
+
+<div class='row'>
+<!-- reply form -->
+  <% if user_signed_in? %>
+    <%= render 'replies/form', map: @map, reply: @reply %>
+  <% end %>
+<!-- show replies -->
+  <%= render 'maps/replies', replies: @replies %>
 </div>
 
 

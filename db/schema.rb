@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_042216) do
+ActiveRecord::Schema.define(version: 2020_06_11_055409) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "map_id"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 2020_06_04_042216) do
     t.decimal "longitude", precision: 11, scale: 8
     t.bigint "user_id"
     t.index ["user_id"], name: "index_maps_on_user_id"
+  end
+
+  create_table "replies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "reply"
+    t.bigint "user_id"
+    t.bigint "map_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["map_id"], name: "index_replies_on_map_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
   create_table "roads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_06_04_042216) do
   add_foreign_key "favorites", "maps"
   add_foreign_key "favorites", "users"
   add_foreign_key "maps", "users"
+  add_foreign_key "replies", "maps"
+  add_foreign_key "replies", "users"
   add_foreign_key "roads", "maps"
   add_foreign_key "shops", "maps"
   add_foreign_key "titles", "maps"

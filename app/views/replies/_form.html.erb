@@ -1,0 +1,12 @@
+<div class='col-sm-4'>
+  <h3>コメント投稿</h3>
+  <p>意見、アドバイス等あれば投稿してください</p>
+  <div class='form-group'>
+    <%= form_with(model: [map, reply], remote: true) do |f| %>
+      <%= f.text_area :reply, class: 'form-control' %>
+      <%= f.submit '投稿', class: 'mt-3' %>
+    <% end %>
+    </div>
+  </div>
+</div>
+
