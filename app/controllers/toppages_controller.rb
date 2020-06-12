@@ -1,4 +1,5 @@
 class ToppagesController < ApplicationController
+
   def index
     @map_index = Map.all
     # Using gmap4rails
@@ -8,4 +9,12 @@ class ToppagesController < ApplicationController
       marker.infowindow render_to_string(partial: 'maps/infowindow', locals: {map: map})
     end
   end
+
+  def about
+  end
+
+  def news
+  end
+
 end
+

@@ -7,10 +7,6 @@
     <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
       <p>アカウントをまだお持ちでない方は <%= link_to "会員登録", new_registration_path(resource_name) %></p>
     <% end %>
- 
-    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-      <p>パスワードを忘れた方は <%= link_to "こちら", new_password_path(resource_name) %></p>
-    <% end %>
 
     <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
       <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
