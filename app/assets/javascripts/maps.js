@@ -1,23 +1,22 @@
 // Map Javascript 
 // defenition 
 var map;
-var myLocation = {lat: 34.809006620739176, lng: 135.5614241910291};
+var first_location = {lat: 34.809006620739176, lng: 135.5614241910291};
 var lat_lng;
 var lat;
 var lng;
-var map2;
 
 
 //initialaize Map
 function initMap () {
   map = new google.maps.Map(document.getElementById('new_map'), {
-    center: myLocation,
+    center: first_location,
     zoom: 5
   });
 
   // set marker
   var marker = new google.maps.Marker ({
-    position: myLocation,
+    position: first_location,
     map: map
   });
 
