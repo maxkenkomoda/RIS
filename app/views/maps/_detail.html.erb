@@ -28,6 +28,10 @@
 <div class='row'>
   <div class='col-12 mb-2'>
     <h5>追記事項・代替ルートなど</h5>
-      <p class='jumbotron'><%= @map.comment.comment %></p>
+      <% if @map.comment.comment.empty? %>
+        <p>コメント無し</p>
+      <% else %>
+        <p class='jumbotron'><%= @map.comment.comment %></p>
+      <% end %>
   </div>
 </div>

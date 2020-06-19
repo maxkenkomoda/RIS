@@ -1,11 +1,22 @@
 <div class='text-center'>
   <h1>RISC!!</h1>
-  <p>Road Infomation Site for Cyclist</p>
+  <p>Road Infomation Site for Cyclists</p>
 </div>
 <h6>マーカーをクリックしてください！マーカーの中の'詳細'をクリックすると詳細ページへと飛びます！<%= link_to 'RISCとは？', about_path %></h6>
+<!-- google map shows down -->
 <div id ='top_map' class='top_map'></div>
 
-
+<div class='row'>
+  <% unless user_signed_in? %>
+    <div class='col-sm-12'>
+      <p>投稿したい方は会員の方限定となります。会員登録は<%= link_to 'こちら', new_user_registration_path %>からお願い致します。</p>
+    </div>
+  <% else %>
+    <div class='col-sm-12 mt-5 mb-5'>
+      <%= link_to '新規情報を投稿する', new_map_path, data: { 'turbolinks' => false }, class: 'col-sm-12 btn btn-lg btn-primary' %>
+    </div>
+  <% end %>
+</div>
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP']%>"></script>
