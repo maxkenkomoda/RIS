@@ -14,10 +14,10 @@
  *= require_self
  */
 
-#navbar {
-  background-color: #C0C0C0;
-}
-
+body {
+    padding-top: 70px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+  }
 
 footer {
   text-align: center;

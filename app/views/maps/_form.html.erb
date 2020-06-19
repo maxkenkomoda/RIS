@@ -28,7 +28,7 @@
 <!-- Traffic checkbox form -->
 
   <div class='row'>
-    <div class='col-sm-4 list-group mb-5'>
+    <div class='col-md-4 list-group mb-5'>
       <h6 class='text-center'>交通量関係</h6>
       <%= f.fields_for :traffic do |t| %>
         <li class='list-group-item'><%= t.check_box :volume %> <%= t.label :volume, '交通量が多い' %></li>
@@ -41,7 +41,7 @@
 
 <!-- Road checkbox form -->
     
-    <div class='col-sm-4 list-group mb-5'>
+    <div class='col-md-4 list-group mb-5'>
       <h6 class='text-center'>路面状況関係</h6>  
       <%= f.fields_for :road do |r| %>
         <li class='list-group-item'><%= r.check_box :condition %> <%= r.label :condition, '路面が荒れている' %></li>
@@ -52,7 +52,7 @@
 
 <!-- Shop checkbox form -->
     
-    <div class='col-sm-4 list-group mb-5'>
+    <div class='col-md-4 list-group mb-5'>
       <h6 class='text-center'>補給・休憩関係</h6>
       <%= f.fields_for :shop do |s| %>
         <li class='list-group-item'><%= s.check_box :no_shop %> <%= s.label :no_shop, 'コンビニ等休憩場所がない' %></li>

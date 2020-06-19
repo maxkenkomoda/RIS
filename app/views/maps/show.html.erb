@@ -34,9 +34,16 @@
 
     
     <% else %>
-      <%= link_to '編集', edit_map_path(@map), class: 'btn btn-light mb-5' %>
+      <%= link_to '編集', edit_map_path(@map), data: {'turbolinks' => false }, class: 'btn btn-light mb-5' %>
     <% end %>
   <% end %> 
+</div>
+
+
+<div class='row'> 
+  <div class='col-sm-12 mb-5'>
+    <%= link_to '<<トップページに戻る', root_path, data: {'turbolinks' => false }, class: ' col-sm-12 btn btn-primary btn-lg' %>
+  </div>
 </div>
 
 <div class='row'>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark" style='background-color: #708090;'>
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top" style='background-color: #444444;'>
   <% if user_signed_in? %>
     <a class="navbar-brand" data-turbolinks='false' href="/" >RISC</a>
   <% else %>
@@ -12,7 +12,12 @@
       <% if user_signed_in? %>
         <li class="nav-item"><%= link_to '新規投稿', new_map_path, data: {'turbolinks' => false }, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'お知らせ', news_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'マイページ', user_path(current_user), data: {'turbolinks' => false }, class: 'nav-link' %></li>
+        <li class="nav-item dropdown">
+          <a href='#' class='nav-link dropdown-toggle' data-toggle='dropdown' >マイページ</a>
+          <div class='dropdown-menu'>
+            <%= link_to '自分の投稿一覧', user_path(current_user), data: {'turbolinks' => false }, class: 'dropdown-item font-color-gray-lighter' %>
+          </div>
+        </li>
         <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
       <% else %>
         <li class="nav-item"><%= link_to 'RISCとは', about_path, class: 'nav-link' %></li>
