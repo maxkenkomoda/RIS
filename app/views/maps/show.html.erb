@@ -27,7 +27,7 @@
     <% unless @map.user == current_user %>
       <p>もしもこの投稿が役に立った場合評価をお願いします</p>
       <% if current_user.likes?(@map) %>
-        <%= link_to '役に立った！を取り消し', unlike_user_path, method: :delte, class: 'btn btn-danger btn-sm mb-5' %>
+        <%= link_to '役に立った！を取り消し', unlike_user_path, method: :post, class: 'btn btn-danger btn-sm mb-5' %>
       <% else %>
         <%= link_to '役に立った！', like_user_path, method: :post, class: 'btn btn-dark btn-sm mb-5' %> 
       <% end %>
@@ -35,6 +35,15 @@
     
     <% else %>
       <%= link_to '編集', edit_map_path(@map), data: {'turbolinks' => false }, class: 'btn btn-light mb-5' %>
+    <% end %>
+    
+    <!-- bookmark function -->
+    <% if current_user.reverse_of_bookmarks?(@map) %>
+      <p>ブックマークを外したい方は以下のボタンをクリックするとブックマークから削除することができます。</p>
+      <%= link_to 'ブックマークから削除', unbookmark_user_path, method: :post, class: 'btn btn-secondary mb-5' %>
+    <% else %>
+      <p>ブックマークに登録したい方は以下のボタンをクリックするとブックマークに登録することができます。</p>
+      <%= link_to 'ブックマークに登録', bookmark_user_path, method: :post, class: 'btn btn-info mb-5'%>
     <% end %>
   <% end %> 
 </div>

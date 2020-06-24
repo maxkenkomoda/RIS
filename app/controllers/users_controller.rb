@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :user_signed_in?
+  before_action :get_other_user_map, only: [:like, :unlike, :bookmark, :unbookmark]
  
 
   def show
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def like 
-    @other_map = Map.find(params[:id])
+    get_other_user_map
     @favorite = current_user.favorites.build(user_id: current_user.id, map_id: @other_map.id)
 
     if @favorite.save 
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
   end
   
   def unlike
-    @other_map = Map.find(params[:id])
+    get_other_user_map
     @favorite = Favorite.find_by(map_id: params[:id])
     if @favorite.destroy
       flash[:success] = '評価ありがとうございます。'
@@ -36,4 +37,36 @@ class UsersController < ApplicationController
       flash[:now] = 'エラーが発生しました。'
     end
   end
+
+  def bookmark
+    get_other_user_map
+    @bookmark = current_user.bookmarks.build(user_id: current_user.id, map_id: @other_map.id)
+
+    if @bookmark.save
+    flash[:success] = 'ブックマークに登録しました'
+      redirect_to controller: :maps, action: :show, id: @other_map
+    else 
+      flash[:now] = 'エラーが発生しました。'
+    end
+  end
+
+  def unbookmark
+    get_other_user_map
+    @bookmark = Bookmark.find_by(map_id: params[:id])
+
+    if @bookmark.destroy
+      flash[:success] = 'ブックマークから削除しました。'
+      redirect_to controller: :maps, action: :show, id: @other_map
+    else 
+      flash[:now] = 'エラーが発生しました。'
+    end
+  end
+
+  
+  private
+
+  def get_other_user_map
+   @other_map = Map.find(params[:id])
+  end
+  
 end
