@@ -1,3 +1,4 @@
 class FavoritesController < ApplicationController
-end
+  before_action :user_signed_in?
 
+end
