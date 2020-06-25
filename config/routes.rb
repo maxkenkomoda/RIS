@@ -16,12 +16,16 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
   end
 
-  #for like, unlike and mypage
+  #for like, unlike, bookmark, unbookmark  and mypage
   resources :users, only: [:show] do
     member do
       get :likes
       post :like
       post :unlike
+
+      get :bookmarks
+      post :bookmark
+      post :unbookmark
     end
   end
   

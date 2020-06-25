@@ -16,6 +16,8 @@
           <a href='#' class='nav-link dropdown-toggle' data-toggle='dropdown' >マイページ</a>
           <div class='dropdown-menu'>
             <%= link_to '自分の投稿一覧', user_path(current_user), data: {'turbolinks' => false }, class: 'dropdown-item font-color-gray-lighter' %>
+            <%= link_to '役に立った投稿一覧', likes_user_path(current_user), data: {'turbolinks' => false }, class: 'dropdown-item font-color-gray-lighter' %>
+            <%= link_to 'ブックマーク一覧', bookmarks_user_path(current_user), data: {'turbolinks' => false }, class: 'dropdown-item font-color-gray-lighter' %>
           </div>
         </li>
         <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
