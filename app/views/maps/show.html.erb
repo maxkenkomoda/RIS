@@ -8,6 +8,9 @@
 </div>
 <div class='row'>
   <div class='offset-8'>
+    <p><%= @map.created_at.strftime('%Y/%m/%d %H:%M:%S')%>に投稿</p>
+  </div>
+  <div class='offset-8'>
     <p>役に立ったと評価した人数：<%= @map.favorites.count %>人</p>
   </div>
 </div>

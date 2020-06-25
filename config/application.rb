@@ -37,5 +37,7 @@ module RIS
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    #time zone sets to Tokyo
+    config.time_zone = 'Asia/Tokyo'
   end
 end
