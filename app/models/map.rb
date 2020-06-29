@@ -4,7 +4,7 @@ class Map < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   has_many :replies, dependent: :destroy
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
 
   has_one :title, dependent: :destroy  
   has_one :traffic, dependent: :destroy

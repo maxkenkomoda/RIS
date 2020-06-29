@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :reverse_of_bookmarks, through: :bookmarks, source: :map
 
   has_many :replies, dependent: :destroy
+  
+  validates :name, presence: true
 
 # check whether users arleady liked or not
   def likes?(other_map)
