@@ -16,5 +16,11 @@ class ToppagesController < ApplicationController
   def news
   end
 
+  def terms_of_service_
+  end
+
+  def privacy_policy
+  end
+
 end
 

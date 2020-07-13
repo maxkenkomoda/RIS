@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style='background-color: #444444;'>
   <% if user_signed_in? %>
-    <a class="navbar-brand" data-turbolinks='false' href="/" >RISC</a>
+    <a class="navbar-brand" data-turbolinks='false' href="/" >RISC!!</a>
   <% else %>
-    <a class="navbar-brand" data-turbolinks='false' href="/" >RISC</a>
+    <a class="navbar-brand" data-turbolinks='false' href="/" >RISC!!</a>
   <% end %>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
     <span class="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@
         </li>
         <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
       <% else %>
-        <li class="nav-item"><%= link_to 'RISCとは', about_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'RISC!!とは', about_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'お知らせ', news_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to '会員登録', new_user_registration_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: 'nav-link' %></li>

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   #toppages routes
   get 'about', to: 'toppages#about'
   get 'news', to: 'toppages#news'
+  get 'terms_of_service', to: 'toppages#terms_of_service'
+  get 'plivacy_policy', to: 'toppages#plivacy_policy'
 
   #devise funciton routes
   devise_for :users, :controllers => {

@@ -4,7 +4,7 @@
   <div class='form-group'>
     <%= form_with(model: [map, reply], remote: true) do |f| %>
       <%= f.text_area :reply, class: 'form-control' %>
-      <%= f.submit '投稿', class: 'mt-3' %>
+      <%= f.submit '投稿', class: 'mt-3', data: {'turbolinks' => false } %>
     <% end %>
     </div>
   </div>
