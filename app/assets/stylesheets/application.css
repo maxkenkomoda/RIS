@@ -20,11 +20,45 @@ body {
   }
 
 footer {
+  margin-top: 80px;
   text-align: center;
 }
 
 footer small {
   display: block;
-  padding: 8px 0;
+  padding: 8px;
   color: #C0C0C0;
+  font-weight: lighter;
+  font-size: 10px;
 }
+
+.footer-links {
+  color: #C0C0C0;
+  font-size: 36px;
+  font-weight: lighter;
+}
+
+.ul_links {
+  margin: 0px;
+  padding: 10px;
+  list-style: none;
+  overflow: hidden;
+}
+
+.ul_links li {
+  width: 230px;
+  padding-bottom: 10px;
+  text-align: left;
+  float: left;
+}
+
+.ul_links a {
+  color: #C0C0C0;
+  text-decoration: none;
+  font-weight: lighter;
+}
+
+.terms {
+  font-family: 'Century Gothic';
+}
+

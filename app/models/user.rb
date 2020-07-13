@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :replies, dependent: :destroy
   
   validates :name, presence: true
+  validates_acceptance_of :agreement, allow_nil: false, on: :create
 
 # check whether users arleady liked or not
   def likes?(other_map)
