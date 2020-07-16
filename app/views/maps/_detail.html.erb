@@ -1,25 +1,25 @@
 <div class='row'>
-  <div class='col-sm-4 mb-5'>
-    <h5>交通量関係での危険箇所</h5>
+  <div class='col-sm-4'>
+    <h5 class='map-h5'>交通量関係での危険箇所</h5>
     <% traffic_details.each do |traffic| %>
       <ul>
-        <li class='text-danger'><%= traffic %></li>
+        <li class='text-danger map-list'><%= traffic %></li>
       </ul>
     <% end %>
   </div>
   <div class='col-sm-4'>
-    <h5>路面状況での危険箇所</h5>
+    <h5 class='map-h5'>路面状況での危険箇所</h5>
     <% road_details.each do |road| %>
       <ul>
-        <li class='text-danger'><%= road %></li>
+        <li class='text-danger map-list'><%= road %></li>
       </ul>
     <% end %>
   </div>
   <div class='col-sm-4'>
-    <h5>補給・休憩関係での危険箇所</h5>
+    <h5 class='map-h5'>補給・休憩関係での危険箇所</h5>
     <% shop_details.each do |shop| %>
       <ul>
-        <li class='text-danger'><%= shop %></li>
+        <li class='text-danger map-list'><%= shop %></li>
       </ul>
     <% end %>
   </div>
@@ -27,11 +27,11 @@
 
 <div class='row'>
   <div class='col-12 mb-2'>
-    <h5>追記事項・代替ルートなど</h5>
+    <h5 class='map-h5'>追記事項・代替ルートなど</h5>
       <% if @map.comment.comment.empty? %>
-        <p>コメント無し</p>
+        <p class='map-show-p'>コメント無し</p>
       <% else %>
-        <p class='jumbotron'><%= @map.comment.comment %></p>
+        <p class='jumbotron map-show-p'><%= @map.comment.comment %></p>
       <% end %>
   </div>
 </div>

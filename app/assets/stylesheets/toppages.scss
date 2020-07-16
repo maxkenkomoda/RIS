@@ -2,9 +2,55 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//For PC Display's CSS
 #top_map {
     width: 100%;
     height: 600px;
     margin: 0 auto;
 }
 
+
+//For small display's CSS
+@media(max-width: 768px){
+#top_map {
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+  } 
+
+h1 {
+    font-size: 26px;
+  }
+
+h2 {
+    font-size: 24px;
+  }
+
+h3 {
+    font-size: 22px;
+  }
+
+h4 {
+  font-size: 20px;
+  }
+
+p {
+  font-size: 14px;
+  }
+
+li {
+    font-size: 14px;
+  }
+
+h4.toppages-h4 {
+    font-size: 18px;
+  }
+
+h6.toppages-h6 {
+    font-size: 16px;
+  }
+
+p.toppages-p {
+    font-size: 13px;
+  }
+}
