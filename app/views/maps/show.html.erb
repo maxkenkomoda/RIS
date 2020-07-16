@@ -1,19 +1,17 @@
 <div class=' text-center mt-3 mb-3'>
-  <h1><%= @map.user.name %>さんによる情報</h1>
+  <h1 class='map-h1'>危険度合い：<%= @map.title.title %><h1>
 </div>
 
 <!-- title -->
 <div class='text-center mb-5'>
-  <h2>危険度合い：<%= @map.title.title %><h2>
+  <h2 class='map-h2'><%= @map.user.name %>さんによる情報</h2>
 </div>
-<div class='row'>
-  <div class='offset-8'>
-    <p><%= @map.created_at.strftime('%Y/%m/%d %H:%M:%S')%>に投稿</p>
+  <div>
+    <p class='map-p'><%= @map.created_at.strftime('%Y/%m/%d %H:%M:%S')%>に投稿</p>
   </div>
-  <div class='offset-8'>
-    <p>役に立ったと評価した人数：<%= @map.favorites.count %>人</p>
+  <div>
+    <p class='map-p'>役に立ったと評価した人数：<%= @map.favorites.count %>人</p>
   </div>
-</div>
 <!-- google map below -->
 
 <div id='show_map' class='mb-5'></div>
@@ -42,20 +40,18 @@
     
     <!-- bookmark function -->
     <% if current_user.reverse_of_bookmarks?(@map) %>
-      <p>ブックマークを外したい方は以下のボタンをクリックするとブックマークから削除することができます。</p>
+      <p class='map-show-p'>ブックマークを外したい方は以下のボタンをクリックするとブックマークから削除することができます。</p>
       <%= link_to 'ブックマークから削除', unbookmark_user_path, method: :post, class: 'btn btn-secondary mb-5' %>
     <% else %>
-      <p>ブックマークに登録したい方は以下のボタンをクリックするとブックマークに登録することができます。</p>
+      <p class='map-show-p>ブックマークに登録したい方は以下のボタンをクリックするとブックマークに登録することができます。</p>
       <%= link_to 'ブックマークに登録', bookmark_user_path, method: :post, class: 'btn btn-info mb-5'%>
     <% end %>
   <% end %> 
 </div>
 
 
-<div class='row'> 
-  <div class='col-sm-12 mb-5'>
-    <%= link_to '<<トップページに戻る', root_path, data: {'turbolinks' => false }, class: ' col-sm-12 btn btn-primary btn-lg' %>
-  </div>
+<div class='col-sm-12 mb-5'>
+  <%= link_to '<<トップページに戻る', root_path, data: {'turbolinks' => false }, class: ' col-sm-12 btn btn-primary btn-lg back-to-top' %>
 </div>
 
 <div class='row'>
