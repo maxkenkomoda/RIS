@@ -43,18 +43,18 @@
       <p class='map-show-p'>ブックマークを外したい方は以下のボタンをクリックするとブックマークから削除することができます。</p>
       <%= link_to 'ブックマークから削除', unbookmark_user_path, method: :post, class: 'btn btn-secondary mb-5' %>
     <% else %>
-      <p class='map-show-p>ブックマークに登録したい方は以下のボタンをクリックするとブックマークに登録することができます。</p>
+      <p class='map-show-p'>ブックマークに登録したい方は以下のボタンをクリックするとブックマークに登録することができます。</p>
       <%= link_to 'ブックマークに登録', bookmark_user_path, method: :post, class: 'btn btn-info mb-5'%>
     <% end %>
   <% end %> 
 </div>
 
 
-<div class='col-sm-12 mb-5'>
-  <%= link_to '<<トップページに戻る', root_path, data: {'turbolinks' => false }, class: ' col-sm-12 btn btn-primary btn-lg back-to-top' %>
-</div>
 
 <div class='row'>
+  <div class='col-sm-12 mb-5'>
+    <%= link_to '<<トップページに戻る', root_path, data: {'turbolinks' => false }, class: ' col-sm-12 btn btn-primary btn-lg back-to-top' %>
+  </div>
 <!-- reply form -->
   <% if user_signed_in? %>
     <%= render 'replies/form', map: @map, reply: @reply %>
