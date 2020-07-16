@@ -19,8 +19,8 @@
         markers = handler.addMarkers(<%=raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
-        handler.getMap().setZoom(22;
-    });
+        handler.getMap().setZoom(2)
+        });
   </script>
 <% else %>
   <div class='text-center mt-5 mb-5'>
@@ -28,5 +28,3 @@
    <%= link_to '新規投稿', new_map_path, data: {'turbolinks' => false }, class: 'btn btn-primary btn-lg' %> 
   </div>
 <% end %>
-
-
