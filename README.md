@@ -1,24 +1,16 @@
-# README
+# READ ME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##RISC!!  
 
-Things you may want to cover:
+[LINK](http://3.220.1.107/)
 
-* Ruby version
+###サービスの説明  
+全てのサイクリストが安全にサイクリングできるように危険箇所をシェアするサービスです。  
+ユーザーが自転車で走行する上で危険な箇所をGoogle Map上にマーカーを表示および内容を見ることができます。
 
-* System dependencies
 
-* Configuration
+![Post_Show](https://user-images.githubusercontent.com/58941838/88167260-8097b800-cc53-11ea-9570-dc279ee7092c.gif)
 
-* Database creation
 
-* Database initialization
+![messageImage_1595413157640](https://user-images.githubusercontent.com/58941838/88165664-036b4380-cc51-11ea-98b0-9908d273161a.jpg)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
