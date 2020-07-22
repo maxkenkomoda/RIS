@@ -13,25 +13,25 @@ URLは[こちら](http://3.220.1.107/)
 ![Post_Show](https://user-images.githubusercontent.com/58941838/88167260-8097b800-cc53-11ea-9570-dc279ee7092c.gif)
 
 ユーザー登録をしていただけると、危険箇所を登録していただけます。</br>
-また登録だけではなく、他ユーザー投稿へのコメント、役に立った評価、ブックマーク保存機能がしようできます。
+また登録だけではなく、他ユーザー投稿へのコメント、役に立った評価、ブックマーク保存機能が使用できます。
 ![New_post](https://user-images.githubusercontent.com/58941838/88168150-f81a1700-cc54-11ea-8662-cee95392379d.gif)  
 
 
 ## 開発について  
 このサービスは現在私が個人で開発しております。  
-1. 開発環境は以下となります。</br>
+### 1. 開発環境は以下となります。</br>
   | OS | macOS Catalina |
-  --|--
+  ----|---- 
   | Ruby | 2.5.3 |
   | Rails | 5.2.4.3|
   | SQL | MySQL 5.2.7.9 |
   | Editor | Vim |
 
-2. データベース図  
+### 2. データベース図  
 データベース図は下記です。
 ![messageImage_1595413157640](https://user-images.githubusercontent.com/58941838/88165664-036b4380-cc51-11ea-98b0-9908d273161a.jpg)  
 
-3. 本番環境について  
+### 3. 本番環境について  
 AWSを用いてデプロイしました。インフラ構成図はこちらです。
 ![インフラ](https://user-images.githubusercontent.com/58941838/88173590-cbb6c880-cc5d-11ea-9fd2-d19d24cb94da.png)  
 
