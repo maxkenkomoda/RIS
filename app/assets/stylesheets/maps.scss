@@ -18,6 +18,7 @@ h4.info-h4 {
 
 p.info-p {
     font-size: 14px; 
+    width: 300px;
   }
 
 p.info-useful {
@@ -44,6 +45,12 @@ p.info-useful {
 .info-delete {
     color: red;
   }
+
+.info {
+    width: 30%;
+  }
+
+
 
 //For small display
 @media(max-width: 768px){
@@ -105,6 +112,22 @@ h4.info-h4 {
 
 p.info-p {
     font-size: 11px;
+    width: 100%;
   }
 
+.detail {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: blue;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+  width: 50%;
+  text-align: center;
+  }
+
+.info {
+    width: 200px;
+  }
 }
