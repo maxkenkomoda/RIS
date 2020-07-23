@@ -1,9 +1,13 @@
-<h4><%= map.title.title %></h4>
+<h4 class='info-h4 border-bottom'><%= map.title.title %></h4>
 <div>
-  <p><%= map.comment.comment.truncate(60) %></p>
-  <p>役に立った数:<%= map.favorites.count %></p>
+  <p class='info-p'><%= map.comment.comment.truncate(255) %></p>
+  <p class='info-useful'>役に立った数:<%= map.favorites.count %></p>
+  <%= link_to '詳細', map_path(map.id), data: {'turbolinks' => false}, class: 'mb-2 detail' %>
 </div>
-<%= link_to '詳細...', map_path(map.id), data: {'turbolinks' => false}  %>
-<% if current_user == map.user %>
-  <%= link_to '削除する', map, method: :delete, style: 'color:red; margin-left:200px;' %>
-<% end %>
+<div class='border-top mt-3'>
+  <div class='mt-2'>
+    <% if current_user == map.user %>
+      <%= link_to '削除する', map, method: :delete, class: 'info-delete mt-5' %>
+    <% end %>
+  </div>
+</div>

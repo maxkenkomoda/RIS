@@ -11,6 +11,40 @@
     margin: 0 auto;
 }
 
+//infowindow css
+h4.info-h4 {
+    font-size: 18px;
+}
+
+p.info-p {
+    font-size: 14px; 
+  }
+
+p.info-useful {
+    font-size: 12px; 
+  }
+
+.detail {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: blue;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+  width: 100%;
+  text-align: center;
+  }
+
+.detail:hover {
+    background: blue;
+    color: white;
+  }
+
+.info-delete {
+    color: red;
+  }
+
 //For small display
 @media(max-width: 768px){
 #show_map {
@@ -64,4 +98,13 @@ li.map-list {
 a.back-to-top {
     font-size: 20px;
   }
+//infowindow css
+h4.info-h4 {
+    font-size: 15px;
+  }
+
+p.info-p {
+    font-size: 11px;
+  }
+
 }
