@@ -6,7 +6,7 @@
   <div class='border-top mt-3'>
     <div class='mt-2'>
       <% if current_user == map.user %>
-        <%= link_to '削除する', map, method: :delete, class: 'info-delete mt-5' %>
+        <%= link_to '削除する', map, method: :delete, class: 'info-delete mt-5', onclick: "window.confirm('削除しますか？');"%>
       <% end %>
     </div>
   </div>
