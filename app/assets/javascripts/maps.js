@@ -43,7 +43,11 @@ function initMap () {
 //submit button click event
 $(document).on('turbolinks:load', function () {
   $('#submit_button').on('click', function () {
-    confirm('投稿を保存します');
+    var res = confirm('投稿を保存します');
+    if (res == true ) {
+      return true;
+    } else {
+      return false;
+    }
   });
 });
-
