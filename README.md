@@ -27,7 +27,9 @@
   | Ruby | 2.5.3 |
   | Rails | 5.2.4.3|
   | SQL | MySQL 5.2.7.9 |
-  | Editor | Vim |
+  | Editor | Vim |  
+  
+  使用技術：HTML/CSS/Bootstrap/JavaScript/jQuery/Ruby/Ruby on Rails/MySQL/AWS(EC2にデプロイ)
 
 ### 2. データベース図  
 データベース図は下記です。
