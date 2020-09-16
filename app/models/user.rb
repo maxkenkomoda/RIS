@@ -25,4 +25,12 @@ class User < ApplicationRecord
   def reverse_of_bookmarks?(other_map)
     self.reverse_of_bookmarks.include?(other_map)
   end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.name = "ゲストユーザー"
+      user.password = SecureRandom.urlsafe_base64
+      user.agreement = true
+    end
+  end
 end
