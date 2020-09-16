@@ -11,6 +11,7 @@
   <% unless user_signed_in? %>
     <div class='col-sm-12'>
       <p>投稿したい方は会員の方限定となります。会員登録は<%= link_to 'こちら', new_user_registration_path %>からお願い致します。</p>
+      <p>もしくは<%= link_to 'こちら', users_guest_sign_in_path, method: :post %>からゲストとしてログインができます。</p>
     </div>
   <% else %>
     <div class='col-sm-12 mt-5 mb-5'>
